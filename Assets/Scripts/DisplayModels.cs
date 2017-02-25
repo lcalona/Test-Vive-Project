@@ -39,7 +39,7 @@ public class DisplayModels : MonoBehaviour
         }
 
         // Toggle scaling
-        if ( ViveInput.GetPressDown(HandRole.RightHand, ContollerButton.Pad) )
+        if ( ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Pad) )
         {
             ToggleScale();
         }
@@ -121,23 +121,27 @@ public class DisplayModels : MonoBehaviour
 
     void Rotate(Vector2 touchPos)
     {
+        /*
         if (touchPos.x > 0.0f)
         {
-            modelList[i].transform.localRotation += new Vector3(0.05f, 0.0f, 0.0f);
+            modelList[i].transform.Rotate( new Vector3(1.0f, 0.0f, 0.0f) );
         }
         else if (touchPos.x < 0.0f)
         {
-            modelList[i].transform.localRotation -= new Vector3(0.05f, 0.0f, 0.0f);
+            modelList[i].transform.Rotate( new Vector3(-1.0f, 0.0f, 0.0f) );
         }
 
         if (touchPos.y > 0.0f)
         {
-            modelList[i].transform.localRotation += new Vector3(0.0f, 0.0f, 0.05f);
+            modelList[i].transform.Rotate( new Vector3(0.0f, 0.0f, 1.0f) );
         }
         else if (touchPos.y < 0.0f)
         {
-            modelList[i].transform.localRotation -= new Vector3(0.0f, 0.0f, 0.05f);
+            modelList[i].transform.Rotate( new Vector3(0.0f, 0.0f, -1.0f) );
         }
+        */
+
+        modelList[i].transform.Rotate(new Vector3(1.0f * touchPos.x, 0.0f, 1.0f * touchPos.y));
     }
 
     void RecordTouch()
